@@ -1,0 +1,53 @@
+﻿@model WebAdvert.Web.Models.Accounts.LoginModel
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Login</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <h4>Login using your email and password</h4>
+        <h5>
+            If you are not a member you can sign up <a asp-controller="Accounts" asp-action="Signup">here</a>
+        </h5>
+        <hr />
+        <form method="post" asp-controller="Accounts" asp-action="Login">
+
+            <div asp-validation-summary="All" class="text-danger">
+
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Email"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Password"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+
+                <label asp-for="RememberMe"></label>
+                <div class="custom-checkbox">
+                    <input asp-for="RememberMe" class="form-control" />
+                </div>
+
+                <span asp-validation-for="RememberMe" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <a asp-action="ForgotPasswordForm">Forgot Password?</a>
+            </div>
+
+            <input type="submit" class="btn" name="Submit" value="Login" />
+        </form>
+    </div>
+</div>
+
+
